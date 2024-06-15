@@ -17,6 +17,7 @@ export default function App() {
         const data = await res.json();
         setOutput((o) => data.rates[`${toCurr}`]);
         setIsLoading(false);
+        console.log(data);
       }
       if (fromCurr === toCurr) return setOutput(amt);
       fetchResult();
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <div>
       <input
-        type="text"
+        type="number"
         value={amt}
         onChange={(e) => setAmt((a) => +e.target.value)}
         disabled={isLoading}
